@@ -198,7 +198,6 @@
             <button onclick="setDifficulty('Easy')">Easy</button>
             <button onclick="setDifficulty('Medium')">Medium</button>
             <button onclick="setDifficulty('Hard')">Hard</button>
-            <button onclick="setDifficulty('Very Hard')">Very Hard</button>
         </div>
     </div>
 
@@ -217,13 +216,31 @@
     <script>
         const questions = {
             idioms: [
-                { day: 1, difficulty: 'Easy', q: "He has made his mark in the field of science.", options: ["attained notoriety", "ruined his wealth", "attained wealth", "distinguished himself"], answer: 3 },
-                { day: 2, difficulty: 'Medium', q: "She rejected his proposal point-blank.", options: ["briefly", "directly", "positively", "rudely"], answer: 1 },
+                { day: 1, difficulty: 'Easy', q: "1. All Greek", options: ["strange", "incomprehensible", "inaudible", "uninteresting"], answer: 1 },
+                { day: 1, difficulty: 'Easy', q: "2. Ace in the hole", options: ["A crucial resource that is hidden till its use is required", "A talented person who is chained by his circumstances", "A person who is considered a doyen in his field", "A person whose capabilities are limited to a particular field"], answer: 0 },
+
+                { day: 1, difficulty: 'Medium', q: "1. Aboveboard", options: ["simple", "open", "decent", "friendly"], answer: 1 },
+                {
+                    day: 1, difficulty: 'Medium', q: "2. An axe to grind", options: 
+                    ["To indulge in evil conspiracies",
+                     "To catch a fish in disturbed water", 
+                     "To make a personal profit out of a situation", 
+                     "To aggravate the situation"
+                    ], answer: 2 
+                },
+
+                { day: 1, difficulty: 'Hard', q: "1. All in a day's work", options: ["Even in routine work one can find instances of fun", "Something unusual or difficult accepted as part of someone's normal routine", "A lot of work which is done in just one day", "Work all day on a job that you love"], answer: 1 },
+
             ],
             ows: [
                 { day: 1, difficulty: 'Easy', q: "A person who speaks many languages", options: ["Linguist", "Polyglot", "Grammarian", "Translator"], answer: 1 },
                 { day: 2, difficulty: 'Medium', q: "One who never drinks alcohol", options: ["Teetotaler", "Sober", "Saint", "Drunkard"], answer: 0 },
-            ]
+            ],
+            vocab: [
+                { day: 1, difficulty: 'Medium', q: "Convene (Verb) -- बुलवाना", options: ["Come or bring together for a meeting or activity; assemble", "Make (someone) less angry or hostile", "Go or move back or further away from a previous position", "None of the above"], answer: 0 },
+                { day: 1, difficulty: 'Medium', q: "Placate (Verb) -- तसलली देना", options: ["Make (someone) less angry or hostile", "Come or bring together for a meeting", "To provoke someone intentionally", "To advance aggressively"], answer: 0 },
+                { day: 1, difficulty: 'Medium', q: "Recede (Verb) -- पीछे हटना", options: ["To approach something", "Go or move back from a previous position", "To summon people together", "To calm someone down"], answer: 1 },
+            ],
         };
 
         let currentSection = localStorage.getItem("section") || "idioms";
@@ -307,11 +324,11 @@
                     if (!isCorrect) {
                         optionsDiv.children[currentQ.answer].className = 'correct';
                     }
-                    setTimeout(() => {
-                        currentIndex++;
-                        if (currentIndex >= data.length) currentIndex = 0;
-                        renderQuestion();
-                    }, 3000);
+                    // setTimeout(() => {
+                    //     currentIndex++;
+                    //     if (currentIndex >= data.length) currentIndex = 0;
+                    //     renderQuestion();
+                    // }, 5000);
                 };
                 optionsDiv.appendChild(btn);
             });
